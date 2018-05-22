@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">beautylive</string>
+
+    <!--main-->
+    <string name="service">服务</string>
+    <string name="consult">资讯</string>
+    <string name="active">活动</string>
+    <string name="mine">我的</string>
+
+    <string name="networderror">当前网络不可用，请检查网络情况</string>
+</resources>

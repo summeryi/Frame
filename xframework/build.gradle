@@ -1,0 +1,58 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.COMPILE_SDK_VERSION
+    buildToolsVersion rootProject.ext.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.MIN_SDK_VERSION
+        targetSdkVersion rootProject.ext.TARGET_SDK_VERSION
+
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'me.yokeyword:fragmentation:1.1.6'
+    implementation 'me.yokeyword:fragmentation-core:1.1.6'
+
+    implementation 'com.yanzhenjie.nohttp:nohttp:1.1.4'
+    implementation 'com.yanzhenjie.nohttp:okhttp:1.1.4'
+    implementation 'com.alibaba:fastjson:1.1.56.android'
+
+    //网络请求
+    implementation 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    implementation 'io.reactivex:rxandroid:1.2.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+
+    implementation "com.android.support:appcompat-v7:${APPCOMPAT_VERSION}"
+    testImplementation 'junit:junit:4.12'
+    implementation "com.android.support:recyclerview-v7:${APPCOMPAT_VERSION}"
+    implementation "com.android.support:design:${APPCOMPAT_VERSION}"
+}
